@@ -1,0 +1,25 @@
+{
+    "name": "keywords",
+    "version": "1.0.0",
+    "description": "A utility extension to save urls based on keywords",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run fmt && webpack --progress --mode production",
+        "watch": "npm run fmt && webpack-dev-server --open --inline --hot --mode development",
+        "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --write \"**/*.js\""
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-transform-runtime": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "babel-loader": "^8.1.0",
+        "prettier": "^2.0.5",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "dependencies": {
+        "filewatcher": "^3.0.1"
+    }
+}

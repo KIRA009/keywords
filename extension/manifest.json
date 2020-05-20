@@ -1,0 +1,29 @@
+{
+    "name": "Keywords",
+    "version": "0.0.1",
+    "description": "A utility extension to save urls based on keywords",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "storage",
+        "https://*/*"
+    ],
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "images/get_started16.png",
+            "32": "images/get_started32.png",
+            "48": "images/get_started48.png",
+            "128": "images/get_started128.png"
+        }
+    },
+    "icons": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    }
+}

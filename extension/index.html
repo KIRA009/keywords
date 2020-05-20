@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywords</title>
+    <link rel="stylesheet" href="src/style/index.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Keywords
+        </h1>
+    </header>
+    <section id="form">
+        <form action="#" method="post" id="form">
+            <div class="form-control">
+                <label for="url">Url</label>
+                <input type="url" name="url" id="url" autocomplete="off">
+            </div>
+            <div class="form-control">
+                <label for="keyword">Keyword</label>
+                <input type="text" name="keyword" id="keyword" autocomplete="off">
+            </div>
+            <div class="form-control" id="keywords">
+            </div>
+        </form>
+    </section>
+    <template id="keyword-template">
+        <div class="keyword">
+            <span class="word"></span>
+            <span class="close">x</span>
+        </div>
+    </template>
+    <!-- <script src="http://localhost:3000/app.js"></script> -->
+    <script src="app.js"></script>
+</body>
+</html>
