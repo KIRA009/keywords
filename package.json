@@ -5,7 +5,7 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "start": "npm run fmt && webpack --progress --mode production",
+        "prod": "npm run fmt && webpack --progress --mode production",
         "watch": "npm run fmt && webpack-dev-server --open --inline --hot --mode development",
         "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --write \"**/*.js\""
     },

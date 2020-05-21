@@ -5,7 +5,7 @@
 }
 
 body {
-    margin: 0;
+    margin: auto;
     width: 250px;
 }
 
@@ -46,10 +46,7 @@ header h1 {
 }
 
 .keyword {
-    background-color: #4a90e2;
     padding: 8px;
-    color: white;
-    border-radius: 10px;
     font-size: 14px;
     margin: 5px 5px 5px 0;
     overflow-x: auto;
@@ -62,4 +59,23 @@ header h1 {
     padding: 0 5px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.btn {
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    box-shadow: 3px 3px #162F76;
+}
+
+.btn:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
 }
