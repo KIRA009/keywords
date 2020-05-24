@@ -4,7 +4,7 @@ let input = document.getElementById('keyword');
 let keywords = document.getElementById('keywords');
 let submitBtn = document.querySelector('#form button');
 let url = document.getElementById('url');
-chrome.storage.sync.set({pairs: {}}, () => {});
+let init = false;
 
 keywordsList.__proto__.add = (el) => {
     keywordsList.push(el);
@@ -27,9 +27,6 @@ keywordsList.__proto__.empty = () => {
     keywords.innerHTML = '';
 };
 
-url.value = window.location.href;
-submitBtn.onclick = (evt) => addKeywordUrlPairToStorage(evt);
-
 const addKeywordToPage = (keyword) => {
     let clone = keywordTemplate.content.cloneNode(true);
     clone.querySelector('.word').textContent = keyword;
@@ -38,7 +35,18 @@ const addKeywordToPage = (keyword) => {
     input.value = '';
 };
 
+const initScript = () => {
+    if (!init) {
+        submitBtn.onclick = (evt) => addKeywordUrlPairToStorage(evt);
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            url.value = tabs[0].url;
+        });
+        init = true;
+    }
+};
+
 export const addKeyword = (evt) => {
+    initScript();
     if (evt.keyCode === 13 && input.value !== '') keywordsList.add(input.value);
 };
 
@@ -46,19 +54,22 @@ const delKeyWord = (word) => {
     keywordsList.del(word);
 };
 
-const addKeywordUrlPairToStorage = (evt) => {
-    evt.preventDefault();
+const addKeywordUrlPairToStorage = () => {
     let urlValue = url.value;
     chrome.storage.sync.get(['pairs'], (res) => {
         let pairs = res.pairs;
         for (let keyword of keywordsList) {
-            if (keyword in pairs) pairs[keyword].push(urlValue);
-            else pairs[keyword] = [urlValue];
+            if (keyword in pairs) {
+                if (pairs[keyword].indexOf(urlValue) === -1) pairs[keyword].push(urlValue);
+            } else pairs[keyword] = [urlValue];
         }
         chrome.storage.sync.set({pairs: pairs}, () => {
             keywordsList.empty();
             url.value = '';
             input.value = '';
+            console.log(pairs);
         });
     });
 };
+
+initScript();

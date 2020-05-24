@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = (env, options) => {
@@ -9,7 +8,7 @@ module.exports = (env, options) => {
             app: __dirname + '/extension/src/js/index.js',
         },
         output: {
-            path: __dirname + '/extension/',
+            path: path.join(__dirname, 'extension'),
             publicPath: publicPath,
             filename: outputFileName,
         },

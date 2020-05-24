@@ -9,8 +9,18 @@
     },
     "permissions": [
         "storage",
-        "https://*/*"
+        "https://*/*",
+        "tabs"
     ],
+    "commands": {
+        "toggle_search_bar": {
+            "suggested_key": {
+                "default": "Ctrl + Shift + F",
+                "mac": "Command + Shift + F"
+            },
+            "description": "Opens the search bar"
+        }
+    },
     "browser_action": {
         "default_popup": "index.html",
         "default_icon": {
